@@ -11,20 +11,16 @@ import qualified Data.Map as M
 import Data.Monoid
 import System.Exit
 import XMonad
-
-import XMonad.Layout.Spacing
-
 import XMonad.Hooks.ManageDocks
-
-import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
-
+import XMonad.Layout.Spacing
 import qualified XMonad.StackSet as W
+import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "gnome-terminal"
+myTerminal = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -69,8 +65,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
-      -- launch dmenu
-      ((modm, xK_p), spawn "dmenu_run"),
+      -- launch rofi
+      ((modm, xK_p), spawn "rofi -modi drun -show drun"),
+      -- launch rofi run
+      ((modm, xK_o), spawn "rofi -modi run -show run"),
       -- launch gmrun
       ((modm .|. shiftMask, xK_p), spawn "gmrun"),
       -- close focused window
@@ -238,8 +236,8 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-	spawnOnce "nitrogen --restore &"
-	spawnOnce "compton &"
+  spawnOnce "nitrogen --restore &"
+  spawnOnce "compton &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
