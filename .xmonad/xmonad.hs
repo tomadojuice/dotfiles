@@ -1,12 +1,11 @@
---
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
---
-
+--  _________  ________  _____ ______   ________  ________  ________        ___  ___  ___  ___  ________  _______      
+-- |\___   ___\\   __  \|\   _ \  _   \|\   __  \|\   ___ \|\   __  \      |\  \|\  \|\  \|\  \|\   ____\|\  ___ \     
+--  \|___ \  \_\ \  \|\  \ \  \\\__\ \  \ \  \|\  \ \  \_|\ \ \  \|\  \     \ \  \ \  \\\  \ \  \ \  \___|\ \   __/|    
+--       \ \  \ \ \  \\\  \ \  \\|__| \  \ \   __  \ \  \ \\ \ \  \\\  \  __ \ \  \ \  \\\  \ \  \ \  \    \ \  \_|/__  
+--        \ \  \ \ \  \\\  \ \  \    \ \  \ \  \ \  \ \  \_\\ \ \  \\\  \|\  \\_\  \ \  \\\  \ \  \ \  \____\ \  \_|\ \ 
+--         \ \__\ \ \_______\ \__\    \ \__\ \__\ \__\ \_______\ \_______\ \________\ \_______\ \__\ \_______\ \_______\
+--          \|__|  \|_______|\|__|     \|__|\|__|\|__|\|_______|\|_______|\|________|\|_______|\|__|\|_______|\|_______|
+                                                                                                                                                                                   
 import qualified Data.Map as M
 import Data.Monoid
 import System.Exit
@@ -203,6 +202,7 @@ myManageHook =
   composeAll
     [ className =? "MPlayer" --> doFloat,
       className =? "Gimp" --> doFloat,
+      className =? "notification" --> doFloat,
       resource =? "desktop_window" --> doIgnore,
       resource =? "kdesktop" --> doIgnore
     ]
