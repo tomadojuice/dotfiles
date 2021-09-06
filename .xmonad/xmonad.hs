@@ -107,7 +107,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       -- See also the statusBar function from Hooks.DynamicLog.
       --
       -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
+      ((modm .|. shiftMask, xK_l), spawn "slock"),
       -- Quit xmonad
       ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess)),
       -- Restart xmonad
